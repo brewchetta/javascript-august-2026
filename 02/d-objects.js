@@ -192,4 +192,21 @@ const business = {
 
 // giveCTORaise() 
 // - takes argument `newSalary`
-// - if newSalary is less than the ceo salary, set the cto salary to `newSalary`
+// - if `newSalary` is less than the ceo salary, set the cto salary to `newSalary`
+
+
+function salaryRaise(raiseAmount) {
+    
+    const newSalary = raiseAmount + business.cto.salary
+
+    if (business.ceo.salary < newSalary) {
+        return "You gotta give the boss some money"
+    } else {
+        business.cto.salary = newSalary
+        return `Good Work this year, here is a raise!  ${newSalary}`
+    }
+}
+
+let newRaise = Math.round( Math.random() * 10000 )
+
+salaryRaise( newRaise )
