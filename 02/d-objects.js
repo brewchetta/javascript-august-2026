@@ -137,3 +137,59 @@ function guessTheNumber(numberGuess) {
     }
 
 }
+
+// EXERCISES
+
+const business = {
+    name: "Things Incorporated",
+    ceo: {
+        firstName: "Jim",
+        lastName: "Businessman",
+        salary: Math.random() * 1000000
+    },
+    cto: {
+        firstName: "Bob",
+        lastName: "Techguyman",
+        salary: Math.random() * 1000000
+    },
+    products: {
+        couch: {
+            price: 100,
+            description: "A very nice couch"
+        },
+        ottoman: {
+            price: 50,
+            description: "It is an ottoman"
+        },
+        rug: {
+            price: 2000,
+            description: "A very nice rug",
+            dimension: {
+                width: "20ft",
+                height: "20ft"
+            }
+        }
+    }
+}
+
+
+// ACCESS INFORMATION
+
+// the name of the business
+// the salary for the ceo
+// the salary for the cto
+// the price for the couch
+// the description for the ottoman
+// the width and height for the rug
+
+// CHANGE THE INFORMATION
+
+// increase the price of the couch by +100
+// change the ottoman description
+// give the ottoman a new key of "condition" with a value of "like new"
+
+// BUILD A FUNCTION
+
+// giveCTORaise() 
+// - takes argument `newSalary`
+// - if newSalary is less than the ceo salary, set the cto salary to `newSalary`
