@@ -37,3 +37,9 @@ Boolean([]) // true - which is WEIRD
 
 Boolean(undefined) // false
 Boolean(null) // false
+
+// let string = "whatever"
+
+// if (string) {
+//     do your true stuff
+// }
