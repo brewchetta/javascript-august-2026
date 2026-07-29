@@ -78,11 +78,3 @@ animals[3] = "giraffe"
 
 //         index, numItemsToRemove
 animals.splice(3, 1)
-
-// RETURN AT 11:55 EST
-// RETURN AT 11:55 EST
-// RETURN AT 11:55 EST
-// RETURN AT 11:55 EST
-// RETURN AT 11:55 EST
-// RETURN AT 11:55 EST
-// RETURN AT 11:55 EST
