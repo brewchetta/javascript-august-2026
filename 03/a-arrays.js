@@ -78,3 +78,7 @@ animals[3] = "giraffe"
 
 //         index, numItemsToRemove
 animals.splice(3, 1)
+
+function doStuff() {
+    console.log("DOING STUFF")
+}
