@@ -61,22 +61,99 @@ for ( let index = lastIndex; index >= 0; index -= 1 ) {
 // }
 
 
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
-// RETURN AT 2:10 EST
+// LOOPING TO ADD TO A VARIABLE
+
+const prices = [
+    1.99,
+    10.99,
+    7.99,
+    5.99
+]
+
+let total = 0
+
+for (let index = 0; index < prices.length; index++) {
+    const discountedPrice = prices[index] * 0.9
+    total += discountedPrice
+}
+
+total = total.toFixed(2)
+
+
+// LOOPING TO FIND AN ITEM
+
+const schoolRoster = [
+    { name: "Chett", gpa: 2.0 },    // 0
+    { name: "Bob", gpa: 4.1 },      // 1
+    { name: "Jim", gpa: 1.9 },      // 2
+    { name: "Joe", gpa: 1.2 },      // 2
+    { name: "John", gpa: 1.4 },      // 2
+    { name: "Jerry", gpa: 1.9 },      // 2
+    { name: "Jon Doe", gpa: 3.9 },      // 2
+    { name: "Jolly", gpa: 1.1 },      // 2
+    { name: "Jorge", gpa: 3.9 },      // 2
+    { name: "Jeremiah", gpa: 2.9 },      // 2
+    { name: "Janice", gpa: 1.0 },      // 2
+    { name: "Jinkens", gpa: 4.9 },      // 2
+    { name: "Jack", gpa: 4.2 },      // 2
+    { name: "Jalen", gpa: 1.9 },      // 2
+    { name: "Jeff", gpa: 3.9 },      // 2
+]
+
+const improvementStudents = []
+
+for (let index = 0; index < schoolRoster.length; index++) {
+    const student = schoolRoster[index]
+
+    if (student.gpa < 2) {
+        improvementStudents.push(student)
+    }
+}
+
+
+// LOOPING IN A FN
+function findHonorRoll(roster) {
+
+    const honorRoll = []
+
+    for (let i = 0; i < roster.length; i++) {
+        const student = roster[i]
+
+        if (student.gpa >= 3.7) {
+            honorRoll.push(student)
+        }
+    }
+
+    return honorRoll
+}
+
+
+// EXERCISES
+
+const groceryItems = [
+    { name: "Cheese", price: 3.99 },
+    { name: "Milk", price: 7.99 },
+    { name: "Gallon of Gas", price: 4.99 },
+    { name: "Gallon of Gas", price: 4.99 },
+    { name: "Gallon of Gas", price: 4.99 },
+    { name: "Tomato", price: 3.49 },
+    { name: "Pasta", price: 2.99 },
+]
+
+let groceryTotal = 0
+
+// Build a for loop which totals all the prices in the groceryItems together using groceryTotal
+
+// Additionally, see if you can remove anything that doesn't belong such as "Gallon of Gas"
+
+const countries = [
+    "United States of America",
+    "Dominican Republic",
+    "Chad",
+    "Brazil",
+    "Norway",
+    "England",
+    "Wyoming",
+]
+
+// Use a for loop to identify countries that have names larger than 8 characters
