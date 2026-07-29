@@ -144,7 +144,7 @@ let groceryTotal = 0
 
 // Build a for loop which totals all the prices in the groceryItems together using groceryTotal
 
-// Additionally, see if you can remove anything that doesn't belong such as "Gallon of Gas"
+// BONUS: See if you can remove or ignore anything with a name of "Gallon of Gas"
 
 const countries = [
     "United States of America",
