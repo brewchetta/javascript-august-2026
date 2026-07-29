@@ -67,11 +67,22 @@ const animals = [
 ]
 
 // 1. add "aardvark" at the beginning of the array
+animals.unshift("aardvark") 
 // 2. remove "tree" from the end of the array
+animals.pop() 
 // 3. at the end of the array add "moose" and "zebra"
+animals.push("moose") 
+animals.push("zebra") 
 // 4. replace "jiraf" with "giraffe"
+animals[3] = "giraffe"
 
-// RETURN AT 11:07 EST
-// RETURN AT 11:07 EST
-// RETURN AT 11:07 EST
-// RETURN AT 11:07 EST
+//         index, numItemsToRemove
+animals.splice(3, 1)
+
+// RETURN AT 11:55 EST
+// RETURN AT 11:55 EST
+// RETURN AT 11:55 EST
+// RETURN AT 11:55 EST
+// RETURN AT 11:55 EST
+// RETURN AT 11:55 EST
+// RETURN AT 11:55 EST
