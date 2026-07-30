@@ -353,6 +353,14 @@ let groceryTotal = 0
 // for each grocery price in groceryPrices, use a for loop to add that to groceryTotal
 // BONUS: Add a 10% discount AND a 6% tax as you add the item to the groceryTotal
 
+for (let index = 0; index < groceryPrices.length; index++) {
+    const groceryItem = groceryPrices[index]
+    const tax = groceryItem * 0.06
+    const discount = groceryItem * 0.10
+    groceryTotal += groceryItem - discount + tax
+}
+
+
 // 2 --- FILTER LOOP   ------------
 
 const cars = [
