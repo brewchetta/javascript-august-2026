@@ -162,18 +162,31 @@ function depotFn() {
     storeFn()
 }
 
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
-// RETURN AT 12:20 EST
+
+// EXERCISES
+
+// addition()
+// - accepts two arguments - num1, num2
+// - returns the two numbers added together
+
+function addition() {}
+
+// subtraction()
+// - accept two arguments - num1, num2
+// - returns num1 subtracted by num2
+
+function subtraction() {}
+
+// calculate()
+// - accepts three arguments - num1, num2, operation
+// - if operation is "+" add the two numbers and return them
+// - if operation is "-" subtract num2 from num1 and return
+// - otherwise just return null
+
+function calculate() {}
+
+// WE WILL REVIEW AT 2:10 EST
+// WE WILL REVIEW AT 2:10 EST
+// WE WILL REVIEW AT 2:10 EST
+// WE WILL REVIEW AT 2:10 EST
+// WE WILL REVIEW AT 2:10 EST
