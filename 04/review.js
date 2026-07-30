@@ -165,17 +165,25 @@ function depotFn() {
 
 // EXERCISES
 
+
 // addition()
 // - accepts two arguments - num1, num2
 // - returns the two numbers added together
 
-function addition() {}
+                // arguments
+function addition(num1, num2) {
+    return num1 + num2
+}
+
 
 // subtraction()
 // - accept two arguments - num1, num2
 // - returns num1 subtracted by num2
 
-function subtraction() {}
+function subtraction(num1, num2) {
+    return num1 - num2
+}
+
 
 // calculate()
 // - accepts three arguments - num1, num2, operation
@@ -183,10 +191,178 @@ function subtraction() {}
 // - if operation is "-" subtract num2 from num1 and return
 // - otherwise just return null
 
-function calculate() {}
+                // three parameters/arguments
+function calculate(num1, num2, operation) {
+    // if operation is "+"
+    if (operation === "+") {
+        return num1 + num2
+    // if operation is "-"
+    } else if (operation === "-") {
+        return num1 - num2
+    // otherwise
+    } else {
+        return null
+    }
+}
 
-// WE WILL REVIEW AT 2:10 EST
-// WE WILL REVIEW AT 2:10 EST
-// WE WILL REVIEW AT 2:10 EST
-// WE WILL REVIEW AT 2:10 EST
-// WE WILL REVIEW AT 2:10 EST
+
+// CONDITIONALS //
+
+if (true) {
+    "do something here"
+}
+
+
+let counter = 3
+
+if (counter > 2) {
+    "do something if true"
+} else {
+    "do something else if false"
+}
+
+
+if (counter > 5) {
+    "we have more than enough"
+} else if (counter > 2) {
+    "we might need more"
+} else if (counter <= 2) {
+    "we'll definitely need more"
+} else {
+    "what were we doing again?"
+}
+
+
+3 > 2 // true
+3 > 3 // false
+3 >= 3 // true
+
+3 === 3 // true
+3 === "3" // false
+3 == "3" // true
+
+3 !== 3 // false
+3 !== 4 // true
+
+"a" < "b" // true
+"b" < "a" // false
+
+!true // false
+!false // true
+
+
+// TRUTHINESS
+// does it exist?
+
+Boolean(12) // true
+Boolean(0) // false
+
+Boolean("hello") // true
+Boolean("") // false
+
+Boolean(undefined) // false
+Boolean(null) // false
+Boolean(NaN) // false
+
+Boolean( [] ) // true (even though it's empty!)
+Boolean( {} ) // true (even though it's empty!)
+
+counter = 0
+
+if (counter) {
+    "COUNTING DOWN"
+} else {
+    "HAPPY NEW YEAR!"
+}
+
+
+// ARRAYS
+
+// data structure - piece of data that contains other data
+
+const daysArray = [
+    "monday",   // 0
+    "tuesday",  // 1
+    "wednesday",// 2
+    "thursday", // 3
+    "fryday",   // 4
+    "saturday", // 5
+    "sunday"    // 6
+]
+
+daysArray[0] // "monday"
+daysArray[3] // "thursday"
+
+daysArray.length // 7
+
+// setting data in an array
+daysArray[4] = "friday"
+
+// adding data at the end of the array
+daysArray.push("nicsday")
+
+// removing data from the end of the array
+daysArray.pop()
+
+// adding data at the beginning of the array
+daysArray.unshift("jimsday")
+
+// removing data at the beginning of the array
+daysArray.shift()
+
+// removing data at a specific index (3 a.k.a. "thursday")
+daysArray.splice(3, 1) // deletes thursday
+
+
+// FOR LOOPS
+
+for (let index = 0; index < daysArray.length; index++) {
+    const currentDay = daysArray[index]
+
+    if (index > 0) {
+        console.log( `Happy ${currentDay}` )
+    } else {
+        console.log( `Ugh I hate ${currentDay}` )
+    }
+}
+
+// let index = 0                -- sets a changeable index - starts at 0
+// index < daysArray.length     -- end condition for the loop
+// index++                      -- increments the index between each loop
+
+
+const wingFlavors = [ "lemon pepper", "buffalo", "bbq", "chipotle", "Louisiana rub", "garlic" ]
+
+for (let i = 0; i < wingFlavors.length; i++) {
+    const currentFlavor = wingFlavors[i]
+
+    const price = "$" + currentFlavor.length
+
+    console.log(price, currentFlavor)
+}
+
+
+// EXERCISES -- UNTIL 4:25 EST
+
+// 1 --- ADD GROCERIES ------------
+
+const groceryPrices = [9.99, 5.88, 32.99, 10.01, 17.11]
+
+let groceryTotal = 0
+
+// for each grocery price in groceryPrices, use a for loop to add that to groceryTotal
+// BONUS: Add a 10% discount AND a 6% tax as you add the item to the groceryTotal
+
+// 2 --- FILTER LOOP   ------------
+
+const cars = [
+    "Honda Civic", 
+    "Toyota Camry", 
+    "Jeep Cherokee", 
+    "Ford Pinto", 
+    "Toyota Corolla"
+]
+
+// for each item log out the item IF it does NOT include Toyota inside of it
+// BONUS: add them to a new array instead called `notToyotaCars`
+// BONUS: put this in a function with a parameter `filterWord` and instead of filtering out `Toyota`, filter out anything with the `filterWord`
