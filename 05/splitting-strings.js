@@ -63,6 +63,7 @@ const splitStringArray = "word".split('') // [ "w", "o", "r", "d" ]
 splitStringArray[0] = splitStringArray[0].toUpperCase() // [ "W", "o", "r", "d" ]
 splitStringArray.join('') // "Word"
 
+
 function capitalizeString( str ) {
     const splitString = str.split('')
     splitString[0] = splitString[0].toUpperCase()
@@ -74,10 +75,131 @@ capitalizeString( "chett" )
 
 
 
+// CAPITALIZE EVERY WORD
+
+
+
+const stringOfNames = "john jim janet joe jill jerry"
+
+const arrayOfNames = stringOfNames.split(' ')
+
+for (let i = 2; i < 4; i++) {
+    arrayOfNames[i] = capitalizeString( arrayOfNames[i] )
+}
+
+
+const beverages = ["coke", "pepsi", "dr pepper"]
+
+
+function capitalizeWords( wordsParam ) {
+    // new array we will add capitalized words
+    const result = []
+    
+    // checking true/false if this is an array
+    const isArray = Array.isArray(wordsParam)
+    if ( isArray ) {
+    
+    
+        // go through every word in the array
+        for (let i = 0; i < wordsParam.length; i++) {
+            // get the word from the array
+            const word = wordsParam[i]
+            // make the capitalized version
+            const capitalWord = capitalizeString( word )
+            // push the capitalized word into the result
+            result.push( capitalWord )
+        }
+    
+        return result
+    
+    // for strings
+    } else if ( typeof wordsParam === "string" ) {
+        // major difference: split the string into an array on spaces
+        const splitString = wordsParam.split(' ')
+
+        for (let i = 0; i < splitString.length; i++) {
+            const word = splitString[i]
+            const capitalWord = capitalizeString( word )
+            result.push( capitalWord )
+        }
+
+        // major difference: join the array back into a string at the end
+        return result.join(' ')
+
+    } else {
+        throw Error("That's not a string or array")
+    }
+
+}
+
+
+// PATCHING / MONKEY PATCHING
+
+function newToLowerCase() {
+  return "lowercase"
+} 
+
+String.prototype.toLowerCase = newToLowerCase 
+
+theWord.toLowerCase() // "lowercase"
+
+
+function newStringMethod() {
+    const splitString = this.split('')
+    splitString[0] = splitString[0].toUpperCase()
+    return splitString.join('')
+}
+
+String.prototype.capitalize = newStringMethod
+
 
 // REVERSE A STRING
-// what about patching - and why it's dangerous
+
+function reverseMethod(word=this) {
+    // result array
+    const result = []
+
+    const splitString = word.split('')
+
+    const finalIndex = splitString.length - 1
+    // altered 'for' loop
+    // start at the end
+                        // while i is above 0
+                                    // decrement towards the beginning 
+    for (let i = finalIndex; i >= 0; i--) {
+        const letter = splitString[i]
+        result.push( letter )
+    }
+
+    return result.join('')
+}
+
+// attach to string
+String.prototype.reverse = reverseMethod
+
 
 // SCRAMBLE A WORD
 
-// CAPITALIZE EVERY WORD
+const stringOfWords = "thank you"
+
+function scramble(word) {
+    // 1. split the word(s)
+    const splitWordArray = word.split(' ')
+
+    // 2. iterate through letters
+    for (let i = 0; i < splitWordArray.length; i++) {
+        // 3. get random index
+        const randomIndex = Math.floor( Math.random() * stringOfWords.length )
+
+        // 4. make variables for the current and random letter
+        const currentLetter = splitWordArray[ i ]
+        const randomLetter = splitWordArray[ randomIndex ]
+        
+        // 5. swap the current and random letter in the array
+        splitWordArray[i] = randomLetter
+        splitWordArray[randomIndex] = currentLetter
+    }
+
+    // 6. join the array back into a string and return
+    return splitWordArray.join(' ')
+}
