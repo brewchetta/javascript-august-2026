@@ -89,9 +89,30 @@ function planAllAmericanVacation( numberOfLocations ) {
 
 // Create a function called getRandomFood()
 // Use the array:
+//               0             1          2           3             4              5
 const foods = ["Pizza", "Hamburger", "Mac n Cheese", "Falafel", "Potato Salad"]
 
 // When the array is called --> getRandomFood()
 // Return a random item from the `foods` array --> "Hamburger" OR "Falafel" OR "Potato Salad" OR ANYTHING ELSE IN THE ARRAY
 
 // Make sure to test this as you go! Try adding new items or removing items from the array, you should always get a random item and number `undefined`
+
+
+function getRandomFood() {
+    const randomFloat = Math.random() * foods.length
+    const randomIndex = Math.floor( randomFloat )
+    return foods[ randomIndex ]
+}
+
+
+// putting food into an array
+// function getRandomFood() {
+//     const randomFoodArray = []
+
+//     const randomFloat = Math.random() * foods.length
+//     const randomIndex = Math.floor( randomFloat )
+//     const randomFoodItem = foods[ randomIndex ]
+//     randomFoodArray.push( randomFoodItem )
+
+//     return randomFoodArray
+// }
