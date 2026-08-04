@@ -55,16 +55,49 @@ jimothy.src = "https://popcreep.com/wp-content/uploads/2026/07/Jimothy-the-Racco
 
 // 1. Can you get the <h2> on the page using querySelector?
 
+document.querySelector('h2')
+
 // 2. Can you get the first <li> on the page?
+
+document.querySelector('li')
 
 // 3. Can you get all of the <p> on the page?
 
+const allPTags = document.querySelectorAll('p')
+
 // 4. Can you get the last <p> on the page?
+
+const lastPTag = document.querySelectorAll('p')[3]
+// OR
+allPTags[allPTags.length - 1]
 
 // 5. Can you change the textContent for the last <p> on the page so it reads "tortoises always win"?
 
+lastPTag.textContent = "tortoises always win"
+
 // 6. Can you change the src for the second <img> on the page to a different critter?
+
+const secondImg = document.querySelectorAll('img')[1]
+
+secondImg.src = "https://img.magnific.com/premium-photo/cute-business-cartoon-raccoon-working-office_1020514-8063.jpg"
 
 // 7. Can you change the border for the second <img> on the page so that it's "solid green 5px"?
 
+secondImg.style.border = "solid green 5px" 
+
 // 8. Can you use a LOOP to change the style for all the <li> on the page so they are all "blue"
+
+const allLi = document.querySelectorAll('li')
+
+for (let i = 0; i < allLi.length; i++) {
+    allLi[i].style.color = "blue"
+}
+
+h1.style.display = "none"
+// won't display the item
+
+h1.style.display = ""
+// resets the item to its normal display
+
+h1.remove()
+// completely removes it from the page
