@@ -1,7 +1,5 @@
 // HANGMAN.js //
 
-console.log("Welcome to Hangman")
-
 // There is a word that we're trying to guess the letters for
 
 // If we guess correctly then that letter is made apparent in the word
@@ -147,6 +145,7 @@ function reset() {
 // SETUP THE GAME
 // choose a random word
 function initialize() {
+    console.log("Welcome to Hangman")
     // reset guesses
     guessesRemaining = guessesBeforeLoss
     // reset the guessed letters
@@ -160,4 +159,4 @@ function initialize() {
 }
 
 // start the game
-initialize()
+// initialize()
