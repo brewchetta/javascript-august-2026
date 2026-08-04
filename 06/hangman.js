@@ -13,21 +13,37 @@ console.log("Welcome to Hangman")
 // For either win or loss we see the final word result
 
 // FUNCTION : SHOW THE CURRENT GUESSES / CORRECT LETTERS / HOW CLOSE TO LOSING
-// FUNCTION : WINNING FUNCTION
-// FUNCTION : LOSING FUNCTION
-
 
 // VARIABLES SECTION
 
 const guessesBeforeLoss = 6
 
-const listOfWords = ['apple']
+const listOfWords = ['apple', 'apply']
 
 let guessedLetters = []
 
 let guessesRemaining = 0
 
 let wordToGuess
+
+let victories = 0
+let defeats = 0
+
+
+// FUNCTION : HELPER TO SEE CURRENTLY BLANK LETTERS IN WORD
+function displayWordSpaces() {
+    let lettersArray = wordToGuess.split('')
+    for (let i = 0; i < lettersArray.length; i++) {
+        const letter = lettersArray[i]
+        const isLetterInGuessedLetters = guessedLetters.includes( letter )
+        if ( !isLetterInGuessedLetters ) {
+            lettersArray[i] = "_"
+        }
+    }
+
+    return lettersArray.join(" ")
+}
+
 
 // FUNCTION : TEST WHETHER A LETTER IS PART OF THE MYSTERY WORD
 function guessALetter(letter) {
@@ -49,10 +65,10 @@ function guessALetter(letter) {
 // FUNCTION : CORRECT GUESS FUNCTION
 function correctGuess(correctLetter) {
     guessedLetters.push(correctLetter)
+    console.log( displayWordSpaces() )
     const isVictory = testForVictory()
     if (isVictory) {
-        // TODO: RUN VICTORY FUNCTION
-        console.log("VICTORY!")
+        victory()
     } else {
         console.log(`${correctLetter} is in the word!`)
     }
@@ -77,21 +93,39 @@ function testForVictory() {
     return true
 }
 
+// FUNCTION : WINNING FUNCTION
+function victory() {
+    console.log("Victory!")
+    victories++
+    console.log(`You have won ${victories} times and lost ${defeats} times.`)
+    console.log("A new word has been chosen if you would like to play again...")
+    reset()
+}
+
 // FUNCTION : INCORRECT GUESS FUNCTION
 function incorrectGuess(incorrectLetter) {
-    console.log(incorrectLetter)
     // add to guessed letters
     guessedLetters.push(incorrectLetter)
     // reduce guesses remaining by one
     guessesRemaining--
+    console.log( displayWordSpaces() )
     // if they're defeated we show the lose screen
     const isDefeated = guessesRemaining <= 0
     if (isDefeated) {
-        // TODO: RUN LOSS FUNCTION
-        console.log("You lose! Would you like to play?")
+        defeat()
     } else { 
         console.log(`${incorrectLetter} is NOT in the word, you have ${guessesRemaining} guesses remaining`)
     }
+}
+
+// FUNCTION : LOSING FUNCTION
+function defeat() {
+    console.log("Defeat!")
+    defeats++
+    console.log(`The word was ${wordToGuess}`)
+    console.log(`You have won ${victories} times and lost ${defeats} times.`)
+    console.log("A new word has been chosen if you would like to play again...")
+    reset()
 }
 
 
@@ -105,6 +139,11 @@ function setRandomWord() {
     wordToGuess = randomWord
 }
 
+// FUNCTION : RESET
+function reset() {
+    initialize()
+}
+
 // SETUP THE GAME
 // choose a random word
 function initialize() {
@@ -114,8 +153,10 @@ function initialize() {
     guessedLetters = []
     // set the random word
     setRandomWord()
+    // see the letters that are in the word
+    console.log( displayWordSpaces() )
     // show instructions
-    console.log("TODO: INSTRUCTIONS GO HERE")
+    console.log("Use guessALetter(letter) to guess which letters are in the word!")
 }
 
 // start the game
