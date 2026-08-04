@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-// HANGMAN.js //
-=======
 // HANGMAN.js //
 
 console.log("Welcome to Hangman")
@@ -123,4 +120,3 @@ function initialize() {
 
 // start the game
 initialize()
->>>>>>> main
