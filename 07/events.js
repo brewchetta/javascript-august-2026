@@ -92,3 +92,74 @@ function toggleMenu(event) {
 const hiddenMenuButton = document.querySelector('#hidden-menu-button')
 
 hiddenMenuButton.addEventListener("click", toggleMenu)
+
+
+// FORMS ///////////////////////////
+
+const newYearsForm = document.querySelector('#new-years-goals-form')
+const goalsList = document.querySelector('#new-years-goals-list')
+const goalInput = document.querySelector('#goal-input')
+
+function handleSubmitGoal( event ) {
+    // certain elements have default behavior
+    event.preventDefault()
+    // event.preventDefault() stops default behavior from happening
+    // a.k.a. the page won't refreshing
+
+    // inputs store user input in .value
+    const userInput = goalInput.value
+
+    // create the li...
+    // 1. createElement
+    const newLi = document.createElement('li')
+    // 2. change li text
+    newLi.textContent = userInput
+    // 3. append to goalsList
+    goalsList.append(newLi)
+
+    // reset the form
+    newYearsForm.reset()
+}
+
+// submit event on a form -- whenever the form gets submitted
+// this is the event we listen for, NOT the click on the submit button
+newYearsForm.addEventListener("submit", handleSubmitGoal)
+
+
+// SECOND TODO LIST
+
+// find all elements and save to variables
+const secondTodoForm = document.querySelector('#second-todo-form')
+const todoItemInput = document.querySelector('#todo-item-input')
+const todoPriorityInput = document.querySelector('#todo-priority-input')
+const secondTodoList = document.querySelector('#second-todo-list')
+
+function handleSubmitTodo(event) {
+    // prevents the page from refreshing
+    event.preventDefault()
+
+    // get user input
+    const userTodo = todoItemInput.value
+    const priority = todoPriorityInput.value
+
+    // create new li and prepend to todo list container
+    const newLi = document.createElement('li')
+    newLi.textContent = `${priority} - ${userTodo}`
+    secondTodoList.prepend( newLi )
+
+    // reset this form - clears out inputs
+    secondTodoForm.reset()
+
+    // add event listener to the new li
+    newLi.addEventListener("click", handleCompleteTodo)
+}
+
+// triggers when we click a new li
+function handleCompleteTodo(event) {
+    // event.target is the newLi from the previous fn
+    const newLi = event.target
+    newLi.style.textDecoration = "line-through"
+}
+
+// add event listener for submit events in the form
+secondTodoForm.addEventListener("submit", handleSubmitTodo)

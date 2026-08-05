@@ -55,11 +55,11 @@ firstInput.value = "123-456-7890"
 const allInputs = document.querySelectorAll('input')
 
 // loop through allInputs and do something for each
-for (let i = 0; i < allInputs.length; i++) {
-    const currentInput = allInputs[i]
-    currentInput.value = "HELLO"
-    currentInput.style.color = "red"
-}
+// for (let i = 0; i < allInputs.length; i++) {
+//     const currentInput = allInputs[i]
+//     currentInput.value = "HELLO"
+//     currentInput.style.color = "red"
+// }
 
 // hide the element (it's still in the DOM but invisible)
 linkToIntro.style.display = "none"
