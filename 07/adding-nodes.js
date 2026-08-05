@@ -50,11 +50,55 @@ addTodo("Organize Sock Drawer")
 // EXERCISES
 
 // 1. Get the movies-watchlist element
+const moviesWatchlistFirstWay = document.querySelector('#movies-watchlist') 
+
 // ALTERNATE 
+
 // 1. Create and append a new <ul> to the body with an id of "movies-watchlist" using JS
+
+const moviesWatchlist = document.createElement('ul') 
+moviesWatchlist.id = "movies-watchlist" 
+document.body.append(moviesWatchlist) 
 
 // 2. Add three movie <li>'s to the movies-watchlist using JS
 
+const firstLi = document.createElement('li')
+firstLi.textContent = "Spiderman"
+moviesWatchlist.append(firstLi)
+
+const secondLi = document.createElement('li')
+secondLi.textContent = "The Odyssey"
+moviesWatchlist.append(secondLi)
+
+const thirdLi = document.createElement('li')
+thirdLi.textContent = "Paw Patrol"
+moviesWatchlist.append(thirdLi)
+
+// BONUS: Do it using a fn
+function addMovie( movieText, priority="low" ) {
+    const newLi = document.createElement('li')
+    newLi.textContent = movieText
+
+    if (priority === "high") {
+        movieText.style.color = "red"
+    } else if (priority === "medium") {
+        newLi.style.color = "orange"
+    } else {
+        newLi.style.color = "blue"
+    }
+
+    moviesWatchlist.append(newLi)
+}
+
 // 3. Prepend a new <h3> into movies-watchlist which says "Movies Watchlist"
 
-// 4. Give each movie in the movies watchlist a different color - show priority for how much you want to see the movie (use querySelectorAll)
+const watchlistTitle = document.createElement('h3')
+watchlistTitle.textContent = "Movies Watchlist"
+moviesWatchlist.prepend( watchlistTitle )
+
+// 4. Give each movie in the movies watchlist a different text color to show a priority for how much you want to see the movie (use querySelectorAll)
+
+const allMovieLis = moviesWatchlist.querySelectorAll('li')
+allMovieLis[0].style.color = "red" 
+allMovieLis[1].style.color = "orange"
+allMovieLis[2].style.color = "blue" 
