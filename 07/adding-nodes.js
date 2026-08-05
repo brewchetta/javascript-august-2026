@@ -45,3 +45,16 @@ function addTodo( text ) {
 
 // now we can easily add new todos to the container
 addTodo("Organize Sock Drawer")
+
+
+// EXERCISES
+
+// 1. Get the movies-watchlist element
+// ALTERNATE 
+// 1. Create and append a new <ul> to the body with an id of "movies-watchlist" using JS
+
+// 2. Add three movie <li>'s to the movies-watchlist using JS
+
+// 3. Prepend a new <h3> into movies-watchlist which says "Movies Watchlist"
+
+// 4. Give each movie in the movies watchlist a different color - show priority for how much you want to see the movie (use querySelectorAll)
