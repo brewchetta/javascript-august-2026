@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review</title>
 
-    <script src="objects-methods.js"></script>
+    <script defer src="objects-methods.js"></script>
+    <script defer src="dom.js"></script>
+
 </head>
 <body>
 
@@ -13,13 +15,47 @@
 
     <ul>
 
-        <li>Objects</li>
-        <li>Methods</li>
+        <li style="text-decoration: line-through">Objects</li>
+        <li style="text-decoration: line-through">Methods</li>
         <li>The DOM</li>
         <li>Loops</li>
         <li>Modular Functions</li>
+        <li>Debugging & Debugging Challenge</li>
 
     </ul>
+
+    <ul id="animal-list">
+        <li>Cats</li>
+        <li>Dogs</li>
+        <li>Raccoons</li>
+    </ul>
+
+    <div>
+        <h2>Hello</h2>
+        <p>I am a div</p>
+    </div>
+
+    <div>
+        <h2>Information About Javascript</h2>
+        <p>Javascript is a coding/scripting/programming language created initially to alter websites.</p>
+
+        <h3>Things You Can Do With JS</h3>
+        <ul>
+            <li>Basic math operations</li>
+            <li>Alter the DOM</li>
+            <li>Make internet requests to APIs and servers</li>
+            <li>Run a server using <span>Node JS</span></li>
+            <li>Webscraping</li>
+        </ul>
+
+        <h3>What is your favorite thing about JS?</h3>
+        <form>
+            <label for="likes-about-js">What You Like:</label>
+            <textarea id="likes-about-js"></textarea>
+
+            <input type="submit" value="Submit Your Answer">
+        </form>
+    </div>
 
 </body>
 </html>

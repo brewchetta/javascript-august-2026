@@ -56,6 +56,9 @@ const jimothy = {
     home: {
         city: "Seattle",
         state: "Washington"
-    }
+    },
     // for home: get the city
+    eatTrash: function() {
+        return "Yum trash I love it"
+    }
 }
