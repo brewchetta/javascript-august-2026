@@ -56,3 +56,69 @@ document.querySelector('textarea').value
 document.querySelector('#likes-about-js').value
 
 document.querySelectorAll('div')[1].querySelector('form').querySelector('textarea').value
+
+// DEBUGGING //
+
+// console.log(greeting)
+
+// const greeting = "hello"
+
+
+function doStuff() {
+    console.log(hello)
+}
+
+function doMoreStuff() {
+    doStuff()
+}
+
+function doEvenMoreStuff() {
+    doMoreStuff()
+}
+
+
+
+function splitNumbers(num) {
+    console.log("num:", num, typeof num)
+    return splitIntoArray(num)
+}
+
+function splitIntoArray( str ) {
+    const parsedStr = String( str )
+    console.log("str:", str, typeof str)
+    console.log("parsedStr:", parsedStr, typeof parsedStr)
+    parsedStr.join('')
+}
+
+
+
+// FAIL SILENTLY BUGS
+
+function logAllItems(array) {
+    for (let i = 0; i < array.length; i++) {
+        debugger // this will pause your code and let you step through one line at a time
+        console.log(array[i])
+    }
+}
+
+
+// MISPELLING
+
+const counter = 0
+
+logAllItems(counter)
+
+// copy/paste variable names to avoid mispelling them
+// don't ignore vscode's suggestions
+
+const superLongVariablenameThatSHouldBeProperlySpelledNButMightNotBe = "hello"
+
+console.log(superLongVariablenameThatSHouldBeProperlySpelledNButMightNotBe)
+
+
+
+function logAllArrayItems( itemsArray ) {
+    for (let i = 0; i < itemsArray.length; i++) {
+        console.log( itemsArray[i] )
+    }
+}
