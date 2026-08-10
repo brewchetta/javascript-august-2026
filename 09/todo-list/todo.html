@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+
+    <script defer src="todo.js"></script>
+</head>
+<body>
+    
+    <h1>Chett's Todo List</h1>
+
+    <!-- LIST -->
+    <ul id="todo-list"></ul>
+
+    <!-- FORM -->
+    <form id="todo-form">
+        <label for="todo-name-input">New Item Name:</label>
+        <input id="todo-name-input" name="todo-name-input" type="text">
+
+        <label for="todo-description-input">New Item Description:</label>
+        <input id="todo-description-input" name="todo-description-input" type="text">
+
+        <label for="todo-deadline">Deadline:</label>
+        <input id="todo-deadline" name="todo-deadline" type="date">
+
+        <label for="todo-color-input">Todo Color:</label>
+        <input id="todo-color-input" name="todo-color-input" type="color">
+
+        <input type="submit" value="Add New Todo">
+    </form>
+
+</body>
+</html>
