@@ -36,8 +36,8 @@ h1.style.color = "#932f2f"
 
 // remove
 
-allLi[3] // get the 4th item
-allLi[3].remove()
+allLi[5] // get the 6th item
+allLi[5].remove()
 
 // add elements to an item
 
@@ -79,8 +79,89 @@ function callbackFunction() {
 }
 
 
-ul.addEventListener("mouseover", handleMouseOver)
+// ul.addEventListener("mouseover", handleMouseOver)
 
-function handleMouseOver() {
-    ul.style.color = "#777"
+// function handleMouseOver() {
+//     ul.style.color = "#111"
+// }
+
+
+// PROMPT //
+
+function addNewReviewItemFromInput() {
+    const newReviewItem = prompt("What new review item should we add?")
+    addNewReviewItem( newReviewItem )
+}
+
+
+// SHOWING / HIDING FORM //
+
+let isFormOpen = true
+
+const toggleFormButton = document.querySelector('#toggle-form-button')
+
+toggleFormButton.addEventListener("click", handleToggleForm)
+
+function handleToggleForm( event ) {
+    console.log( event )
+    const form = document.querySelector('form')
+
+    if ( isFormOpen ) {
+        form.style.display = "none"
+        isFormOpen = false
+    } else {
+        form.style.display = ""
+        isFormOpen = true
+    }
+}
+
+
+// SWITCH //
+
+// switch - conditional logic
+
+function calculator(num1, num2, operation) {
+    let result = 0
+    // switch is a lot like a big "if / else if"
+    switch( operation ) {
+        case "+":
+            console.log("We are in the +")
+            // add the numbers together if "+"
+            result = num1 + num2
+            break // stops the switch from checking more cases
+        case "-":
+            console.log("We are in the -")
+            // subtract the numbers if "-"
+            result = num1 - num2
+            break // if we don't have these it WILL ALSO do the default
+        default:
+            console.log("We are in the default")
+            // default code if nothing above was true
+            throw Error("You must use a valid operation for the calculator: '+', '-'")
+    }
+
+    return result
+}
+
+
+// FORM SUBMISSION //
+
+const form = document.querySelector('form')
+
+let submissionCounter = 0
+
+form.addEventListener('submit', handleFormSubmit)
+
+function handleFormSubmit( event ) {
+    // by default the page refreshes
+    event.preventDefault() // stop default refreshing
+
+    const reviewInput = document.querySelector('#review-input')
+    addNewReviewItem( reviewInput.value )
+
+    submissionCounter++
+    if (submissionCounter >= 3) {
+        form.reset() // resets the form to its default state
+        submissionCounter = 0
+    }
 }
