@@ -98,3 +98,32 @@ const lilListOfPeople = [
 
 
 // .reduce()
+
+function reduceBy(array, callback, initialValue=0) {
+    let accumulator = initialValue
+    for (let i = 0; i < array.length; i++) {
+        const item = array[i]
+        accumulator = callback(accumulator, item)
+    }
+    return accumulator
+}
+
+const prices = [9.99, 5.99, 30.45, 21,22] 
+
+// `runningTotal` is `accumulator`
+// `itemPrice` is `item`
+reduceBy(prices, (runningTotal, itemPrice) => runningTotal + itemPrice) // 89.43 
+
+//              accumulator     item
+prices.reduce((runningTotal, itemPrice) => runningTotal + itemPrice) // 89.43
+
+// the purpose of reduce is to REDUCE / compress the data down to a single value ( such as a sum total )
+
+
+// .sort()
+
+menuItems.sort((a,b) => a > b)
+// sort alphabetically
+
+prices.sort((a,b) => a > b) 
+// sort highest to lowest
