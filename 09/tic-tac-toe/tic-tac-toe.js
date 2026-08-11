@@ -19,8 +19,23 @@ for (let i = 0; i < allSquares.length; i++) {
 }
 
 function handleClickSquare( event ) {
-    event.target.textContent = currentPlayer
+    if (event.target.dataset.owner) return
+    event.target.dataset.owner = currentPlayer
+    addImgToSquare( event.target )
     checkVictory()
+}
+
+function addImgToSquare( currentSquare ) {
+    let currentImgPath
+    if (currentPlayer === "X") {
+        currentImgPath = 'assets/x.svg'
+    } else if (currentPlayer === "O") {
+        currentImgPath = 'assets/o.svg'
+    }
+
+    const img = document.createElement('img')
+    img.src = currentImgPath
+    currentSquare.append(img)
 }
 
 function togglePlayer() {
@@ -33,32 +48,30 @@ function togglePlayer() {
 
 function checkVictory() {
     const rowVictory = checkAllRows()
-    if ( rowVictory ) {
+    const colVictory = checkAllColumns()
+    const diagVictory = checkAllDiagonals()
+    if ( rowVictory || colVictory || diagVictory ) {
         alert( "Tic tac toe three in a row!" )
     } else {
         togglePlayer()
-    }    
-    //     OR
-    //     most recent square plus column squares === currentPlayer?
-    //     OR
-    //     most recent square plus squares in diagonal === currentPlayer?
+    }
 }
 
 function checkAllRows() {
     let result = false
 
     const rowOneSquares = document.querySelectorAll('.row-1')
-    if ( checkRow(rowOneSquares) ) {
+    if ( checkLine(rowOneSquares) ) {
         result = true
     }
 
     const rowTwoSquares = document.querySelectorAll('.row-2')
-    if ( checkRow(rowTwoSquares) ) {
+    if ( checkLine(rowTwoSquares) ) {
         result = true
     }
 
     const rowThreeSquares = document.querySelectorAll('.row-3')
-    if ( checkRow(rowThreeSquares) ) {
+    if ( checkLine(rowThreeSquares) ) {
         result = true
     }
 
@@ -66,14 +79,70 @@ function checkAllRows() {
 }
 
 
-function checkRow( rowArray ) {
-    const firstAndSecondMatch = rowArray[0].textContent === rowArray[1].textContent
-    const firstAndThirdMatch = rowArray[0].textContent === rowArray[2].textContent
-    
-    return firstAndSecondMatch && firstAndThirdMatch
+function checkAllColumns() {
+    let result = false
+
+    const colOneSquares = document.querySelectorAll('.col-1')
+    if ( checkLine(colOneSquares) ) {
+        result = true
+    }
+
+    const colTwoSquares = document.querySelectorAll('.col-2')
+    if ( checkLine(colTwoSquares) ) {
+        result = true
+    }
+
+    const colThreeSquares = document.querySelectorAll('.col-3')
+    if ( checkLine(colThreeSquares) ) {
+        result = true
+    }
+
+    return result
 }
 
 
-// TODOS AFTER MVP //
+function checkAllDiagonals() {
+    let result = false
 
-// TODO: If square has already been chosen by a player, no player may click that square again
+    const diagOneSquares = document.querySelectorAll('.diag-1')
+    if ( checkLine(diagOneSquares) ) {
+        result = true
+    }
+
+    const diagTwoSquares = document.querySelectorAll('.diag-2')
+    if ( checkLine(diagTwoSquares) ) {
+        result = true
+    }
+
+    return result
+}
+
+
+function checkLine( squares ) {
+    const firstMatch = squares[0].dataset.owner === currentPlayer
+    const secondMatch = squares[1].dataset.owner === currentPlayer
+    const thirdMatch = squares[2].dataset.owner === currentPlayer
+    
+    return firstMatch && secondMatch && thirdMatch
+}
+
+function reset() {
+    // set current player back to "X"
+    currentPlayer = "X"
+    
+    // delete all imgs inside #board
+    const allImgs = document.querySelectorAll('#board img')
+    for (let i = 0; i < allImgs.length; i++) {
+        allImgs[i].remove()
+    }
+
+    // reset all the datasets inside the squares
+    for (let i = 0; i < allSquares.length; i++) {
+        const square = allSquares[i]
+        square.dataset.owner = ''
+    }
+}
+
+const resetButton = document.querySelector('button')
+
+resetButton.addEventListener("click", reset)
