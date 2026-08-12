@@ -130,4 +130,16 @@ beverages.join("|")
 // "brotein coffee|coca cola|fireball whiskey|iq coffee|tea" 
 
 
-// .reduce
+// .reduce() - [non-destructive]
+
+const numbers = [3, 6, 9, 12, 15, 18, 21]
+
+// iterates through all the items and returns a single value using the items and an accumulator
+numbers.reduce((runningTotal, n) => runningTotal + n)
+// 84
+
+// can get the total number of characters in an array of strings
+beverages.reduce((letterCount, bev) => letterCount + bev.length, 0) 
+// 51
+
+// the `, 0` as a final argument tells .reduce to start `letterCount` at 0, otherwise something weird might happen
